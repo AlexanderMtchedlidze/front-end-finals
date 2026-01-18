@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StreamFlix - Your destination for premium streaming movies and entertainment">
+    <title>StreamFlix - Movie Streaming</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Header with navigation -->
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="#" class="logo">StreamFlix</a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#movies" class="nav-link">Movies</a></li>
+                <li class="nav-item"><a href="#genres" class="nav-link">Genres</a></li>
+                <li class="nav-item"><a href="#search" class="nav-link">Search</a></li>
+            </ul>
+
+            <!-- Burger menu button for mobile -->
+            <button class="burger-menu" id="burgerMenu" aria-label="Toggle menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<!-- Main content -->
+<main>
+    <!-- Hero section with featured movie -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <img id="heroImage" src="" alt="Featured Movie" style="display: none;">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content" id="heroContent">
+                <div class="hero-meta">
+                    <div class="rating-badge">
+                        <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span class="rating-value">--</span>
+                    </div>
+                    <span class="hero-year">--</span>
+                </div>
+
+                <h1 class="hero-title">Loading...</h1>
+                <p class="hero-description">Please wait while we load the featured movie...</p>
+
+                <button class="btn btn-primary">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Watch Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies section -->
+    <section class="movies-section" id="movies">
+        <div class="container">
+            <h2 class="section-title">Popular Movies</h2>
+
+            <div class="movies-grid" id="moviesGrid">
+                <!-- Movies will be loaded dynamically -->
+                <div class="loading">Loading movies...</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p class="footer-text">
+            © 2024 StreamFlix. All rights reserved. Your destination for premium streaming content.
+        </p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

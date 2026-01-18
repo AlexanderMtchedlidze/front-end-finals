@@ -1,0 +1,499 @@
+/* CSS Variables for colors */
+:root {
+    --primary-blue: #3b82f6;
+    --primary-purple: #9333ea;
+    --dark-bg: #020617;
+    --dark-card: #0f172a;
+    --dark-lighter: #1e293b;
+    --text-white: #ffffff;
+    --text-gray: #94a3b8;
+    --text-light-gray: #cbd5e1;
+    --yellow-star: #eab308;
+    --border-gray: #334155;
+    --hover-blue: #2563eb;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-white);
+    background: linear-gradient(to bottom, var(--dark-bg), var(--dark-card), var(--dark-bg));
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header styles - will be fixed on scroll via JavaScript */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-gray);
+    padding: 1rem 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: rgba(2, 6, 23, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-blue);
+}
+
+/* Burger menu - hidden on desktop */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.burger-line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-white);
+    transition: all 0.3s ease;
+}
+
+.burger-menu.active .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.active .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 80px;
+    padding-bottom: 4rem;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    background-color: var(--dark-lighter);
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--dark-bg) 0%, rgba(2, 6, 23, 0.6) 50%, transparent 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(234, 179, 8, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.star-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--yellow-star);
+}
+
+.rating-value {
+    color: var(--yellow-star);
+    font-weight: 600;
+}
+
+.hero-year {
+    color: var(--text-gray);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--text-light-gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    line-height: 1.8;
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+/* Button styles with hover effects */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+    color: var(--text-white);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, var(--hover-blue), #7e22ce);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.play-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Movies section */
+.movies-section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.movie-card {
+    background-color: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border-gray);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease;
+    display: flex;
+    flex-direction: row;
+}
+
+.movie-card:hover {
+    transform: scale(1.02);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.movie-poster {
+    width: 192px;
+    height: 288px;
+    background: linear-gradient(135deg, var(--dark-lighter), var(--dark-card));
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-gray);
+    font-size: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.movie-poster img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.movie-card:hover .movie-poster img {
+    transform: scale(1.1);
+}
+
+.movie-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.movie-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+}
+
+.movie-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.movie-rating .star-icon {
+    color: var(--yellow-star);
+}
+
+.movie-rating span {
+    color: var(--yellow-star);
+}
+
+.btn-secondary {
+    background-color: var(--dark-lighter);
+    color: var(--text-white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-blue);
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 1.125rem;
+    padding: 2rem;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid var(--border-gray);
+    margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+.footer-text {
+    text-align: center;
+    color: var(--text-gray);
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.15;
+    }
+}
+
+/* Responsive design for tablet and mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Show burger menu on mobile */
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Hide navigation menu by default on mobile */
+    .nav-menu {
+        position: fixed;
+        top: 65px;
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--dark-bg);
+        width: 100%;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        transition: left 0.3s ease;
+        gap: 0;
+        border-top: 1px solid var(--border-gray);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        width: 100%;
+        padding: 0.75rem 0;
+    }
+
+    /* Hero adjustments */
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    /* Movies grid to single column */
+    .movies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-card {
+        flex-direction: column;
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: 300px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Specific styles for 420px */
+@media (max-width: 420px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-description {
+        font-size: 0.938rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.938rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .movie-info {
+        padding: 1.25rem;
+    }
+
+    .movie-title {
+        font-size: 1.25rem;
+    }
+}
