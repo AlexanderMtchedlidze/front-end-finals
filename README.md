@@ -166,3 +166,6 @@ movie-website/
 
 Educational project - created for final exam demonstration.
 # front-end-finals
+
+
+https://696d0906a495fd516fb4f47f--tranquil-valkyrie-09984d.netlify.app/
